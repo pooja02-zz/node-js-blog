@@ -28,6 +28,19 @@ app.use(bodyParser.json())
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
+const validateCreatePostMiddleware = (req, res, next ) => {
+
+  if (!req.files.image || !req.body.username || !req.body.title || !req.body.subtitle || !req.body.content) {
+
+    return res.redirect('/posts/new')
+  }
+
+  next()
+
+}
+
+app.use('/posts/store', validateCreatePostMiddleware)
+
 app.get('/', async (req, res) => {
 
   const posts = await Post.find({})
