@@ -10,7 +10,7 @@ module.exports = (req, res) => {
 
     if(user) {
 
-        bcryptjs.compare(password, user.password, (error, result) => {
+        bcryptjs.compare(password, user.password, (error, same) => {
 
           if (same) {
 
