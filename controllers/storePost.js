@@ -12,7 +12,9 @@ module.exports = (req, res) => {
 
         ...req.body,
 
-        image: `/posts/${image.name}`
+        image: `/posts/${image.name}`,
+
+        author: req.session.userId
 
       }, (error, post) => {
 
