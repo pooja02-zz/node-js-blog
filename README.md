@@ -1,5 +1,8 @@
 ## node-js-blog
 
+**Live demo [here](https://demo-blogger.herokuapp.com).**
+Try and test it yourself!
+
 It is a web application that allows us to register, login, write a blog content, view and logout!
 
 ## Instructions
