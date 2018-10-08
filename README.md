@@ -13,5 +13,7 @@ It is a web application that allows us to register, login, write a blog content,
 
 ## How to deploy?
 
-* Download all the files
-* Install npm
+* Clone the repository
+* Enter values in .env_sample file and rename it to .env for your local build
+* Install npm (and dependencies)
+* Deploy by giving command npm start
