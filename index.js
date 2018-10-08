@@ -23,7 +23,7 @@ const logoutController = require('./controllers/logout')
 
 const app = new express()
 
-mongoose.connect(process.env.DB_URI)
+mongoose.connect(process.env.MONGODB_URI)
 
 app.use(connectFlash())
 
