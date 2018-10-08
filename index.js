@@ -1,4 +1,4 @@
-const path = require('path')
+  const path = require('path')
 
 const expressEdge = require('express-edge')
 
@@ -8,11 +8,15 @@ const mongoose = require('mongoose')
 
 const bodyParser = require('body-parser')
 
+const fileUpload = require('express-fileupload')
+
 const Post = require('./database/models/Post')
 
 const app = new express()
 
 mongoose.connect('mongodb://localhost/node-js-blog')
+
+app.use(fileUpload())
 
 app.use(express.static('public'))
 
@@ -44,8 +48,16 @@ app.get('/posts/new', (req, res) => {
 
 app.post('/posts/store', (req, res) => {
 
-  Post.create(req.body, (error, post) => {
-    res.redirect('/')
+  const { image } = req.files
+
+  image.mv(path.resolve(__dirname, 'public/posts', image.name), (error) => {
+
+    Post.create(req.body, (error, post) => {
+
+      res.redirect('/')
+
+    })
+
   })
 
 })
