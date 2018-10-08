@@ -8,7 +8,7 @@ const UserSchema = new mongoose.Schema({
 
     type: String,
 
-    required: true
+    required: [true, 'Please provide your userame.']
 
   },
 
@@ -16,7 +16,7 @@ const UserSchema = new mongoose.Schema({
 
     type: String,
 
-    required: true,
+    required: [true, 'Please provide your email.'],
 
     unique: true
 
@@ -26,7 +26,7 @@ const UserSchema = new mongoose.Schema({
 
     type: String,
 
-    required: true
+    required: [true, 'Please provide your password.']
 
   }
 
